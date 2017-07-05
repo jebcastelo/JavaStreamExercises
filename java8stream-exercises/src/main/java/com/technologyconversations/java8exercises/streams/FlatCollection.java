@@ -21,7 +21,9 @@ public class FlatCollection {
     }
 
     public static List<String> transform(List<List<String>> collection) {
-        return null;
-    }
+		return collection.stream()
+				.flatMap((x) -> x.stream())
+				.collect(toList());
+	}
 
 }

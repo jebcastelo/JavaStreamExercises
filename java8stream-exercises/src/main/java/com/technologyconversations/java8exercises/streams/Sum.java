@@ -16,7 +16,8 @@ public class Sum {
     }
 
     public static int calculate(List<Integer> people) {
-        return 0;
+    	int sum = people.stream().reduce(0, (a, b) -> a+b);		  
+        return sum;
     }
 
 }

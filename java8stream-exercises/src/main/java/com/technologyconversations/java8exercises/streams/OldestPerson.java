@@ -1,7 +1,11 @@
 package com.technologyconversations.java8exercises.streams;
 
+import static org.assertj.core.api.Assertions.setMaxElementsForPrinting;
+
 import java.util.Comparator;
+import static java.util.stream.Collectors.*;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class OldestPerson {
 
@@ -16,7 +20,13 @@ public class OldestPerson {
     }
 
     public static Person getOldestPerson(List<Person> people) {
-        return null;
+    	final Comparator<Person> comp = (p1, p2) -> Integer.compare( p1.getAge(), p2.getAge());
+        Person oldest = people.stream()
+                                  .max(comp)
+                                  .get();
+
+		return oldest;
+    	
     }
 
 }
